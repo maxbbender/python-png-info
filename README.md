@@ -9,9 +9,11 @@ Install Python/Set up Virtual Environment for Python 3.X and run
 pip install -r requirements.txt
 ```
 
+Then you must configure your aws credentials for `boto3` to work. See [Boto 3 Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#configuration) for more info.
+
 ### Parameters
 
-There are two environment variables you can set to override defaults 
+There are three environment variables you can set to override defaults 
 
 ###### IMAGE_URL
 
@@ -29,9 +31,22 @@ export IMAGE_URL=https://logos-download.com/wp-content/uploads/2018/07/Marvel_lo
 export TARGET_FILE=a-different-header.txt
 ```
 
+###### BUCKET_NAME
+
+**Default** `python-png-info`
+
+```
+export BUCKET_NAME=s3-bucket-name
+```
+
 ## Usage
 
 Once your variables are set to your liking run `python main.py` to print out the header info to your console as well as generate a text file containing the output
+
+```
+pip install -r requirements.txt && \
+  python main.py
+```
 
 #### Problem Description
 

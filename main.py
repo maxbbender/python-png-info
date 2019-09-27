@@ -55,9 +55,14 @@ else:
     image.save(filename)
 
     # Upload both to s3
-    print('Uploading to s3')
+    print('Uploading to image and headers to s3')
     bucket_name = os.environ.get('BUCKET_NAME') or 'python-png-info'
     s3.upload_file(filename, bucket_name, filename)
     s3.upload_file(target_file, bucket_name, target_file)
+
+    # Upload this script!
+    print('Uploading this very script to s3')
+    s3.upload_file('main.py', bucket_name, 'main.py')
     print('Finished Uploading to s3')
+
 
