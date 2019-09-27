@@ -1,0 +1,13 @@
+{'accept-ranges': ['Accept-Ranges', 'bytes'],
+ 'alt-svc': ['Alt-Svc',
+             'quic=":443"; ma=2592000; v="46,43",h3-Q046=":443"; '
+             'ma=2592000,h3-Q043=":443"; ma=2592000'],
+ 'cache-control': ['Cache-Control', 'private, max-age=31536000'],
+ 'content-length': ['Content-Length', '13504'],
+ 'content-type': ['Content-Type', 'image/png'],
+ 'date': ['Date', 'Fri, 27 Sep 2019 18:49:03 GMT'],
+ 'expires': ['Expires', 'Fri, 27 Sep 2019 18:49:03 GMT'],
+ 'last-modified': ['Last-Modified', 'Thu, 08 Dec 2016 01:00:57 GMT'],
+ 'server': ['Server', 'sffe'],
+ 'x-content-type-options': ['X-Content-Type-Options', 'nosniff'],
+ 'x-xss-protection': ['X-XSS-Protection', '0']}
