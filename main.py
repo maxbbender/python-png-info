@@ -1,5 +1,6 @@
 import requests
 import json
+from PIL import Image
 
 from requests.exceptions import HTTPError
 import os
@@ -44,3 +45,7 @@ else:
     f.write(pformat(headers_json))
     f.close()
     print('Finished Writing %s' % target_file)
+
+    # Save Image to file
+    image = Image.open(BytesIO(response.content))
+    image.save(filename)
