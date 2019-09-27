@@ -1,12 +1,15 @@
-import requests
 import json
-from PIL import Image
-
-from requests.exceptions import HTTPError
 import os
-from io import BytesIO
-from pprint import pprint, pformat
 import re
+from io import BytesIO
+from pprint import pformat, pprint
+
+import boto3
+import requests
+from PIL import Image
+from requests.exceptions import HTTPError
+
+s3 = boto3.client('s3')
 
 image_url = os.environ.get('IMAGE_URL') or 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
 target_file = os.environ.get('TARGET_FILE') or 'header.txt'
@@ -47,5 +50,14 @@ else:
     print('Finished Writing %s' % target_file)
 
     # Save Image to file
+    print('Writing image to %s' % filename)
     image = Image.open(BytesIO(response.content))
     image.save(filename)
+
+    # Upload both to s3
+    print('Uploading to s3')
+    bucket_name = os.environ.get('BUCKET_NAME') or 'python-png-info'
+    s3.upload_file(filename, bucket_name, filename)
+    s3.upload_file(target_file, bucket_name, target_file)
+    print('Finished Uploading to s3')
+
