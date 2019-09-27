@@ -48,6 +48,8 @@ pip install -r requirements.txt && \
   python main.py
 ```
 
+Check your s3 bucket to see the files that were uploaded...
+
 #### Problem Description
 
 > Write a script that will:
